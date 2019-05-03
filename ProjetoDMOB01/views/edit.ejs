@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de alunos</title>
+<link href="/CSS/style.css" rel="stylesheet" type="text/css" />
+  <script>
+    function aviso(){
+      alert("Alteração efetuada com sucesso")
+    }
+    function validar(){
+      var formulario = document.forms["formulario"]
+      var nome = formulario.nome.value;
+      var nota = formulario.nota.value;
+      if (nome==""){
+        alert("Nome Invalido")
+        return false;
+      }
+      if (nota=="" || isNaN(formulario.nota.value)){
+        alert("Nota Invalido")
+        return false;
+      }
+       if (  isNaN(formulario.nota.value)) {  
+       alert("Digite apenas números!");  
+       form.telefone.select();  
+       return false;  
+      }
+    }
+  </script>
+</head>
+<body>
+<div class="wrapper">
+    <div>
+    <img class="logo" src="https://m.macmillanlearning.com/Catalog/uploadedImages/Content/BFW/Home/ic-homepage-callout-student.png">
+<h2>Editar Notas</h2>
+  <% data.forEach(function(details) { %>
+    <form name ="formulario" onsubmit="return validar()" action="/edit/<%= details._id %>" method="POST">
+      <input type="text" value="<%= details.nome %>" name="nome">
+      <input type="text" value="<%= details.nota %>" name="nota">
+      <br />
+      <button><a href="/show">Voltar</a></button>
+      <button type="submit" onclick="validar()" >Atualizar</button>
+    </form>
+  <% }) %>
+   </div>
+</div>
+</body>
+</html>

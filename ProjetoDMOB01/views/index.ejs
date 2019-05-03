@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de alunos</title>
+<link href="CSS/style.css" rel="stylesheet" type="text/css" />
+ <script>
+    function aviso(){
+      alert("Editado com Sucesso")
+    }
+    
+    function validar(){
+      var formulario = document.forms["formulario"]
+      var nome = formulario.nome.value;
+      var nota = formulario.nota.value;
+      if (nome==""){
+        alert("Nome Invalido")
+        return false;
+      }
+      if (nota=="" || isNaN(formulario.nota.value)){
+        alert("Nota Invalido")
+        return false;
+      }
+       if (  isNaN(formulario.nota.value)) {  
+       alert("Digite apenas números!");  
+       form.telefone.select();  
+       return false;  
+      }
+    }
+  </script>
+</head>
+<body>
+<div class="wrapper">
+    <div>
+    <img class="logo" src="https://m.macmillanlearning.com/Catalog/uploadedImages/Content/BFW/Home/ic-homepage-callout-student.png"> 
+<h2>Registrar Aluno<h2>
+    <form name="formulario" onsubmit="return validar()" action="/" method="POST">
+        <input type="text" placeholder="Nome do Aluno" name="nome">
+        <input type="text" placeholder="Nota" name="nota">
+        <br />
+        <button type="submit" onclick="validar()" >Cadastrar</button>
+        <button><a href="/show">Listar</a></button>
+    </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de alunos</title>
+    <link href="CSS/style.css" rel="stylesheet" type="text/css" />
+    <script>
+      function aviso(){
+        alert("Aluno Excluido com Sucesso!")
+      }
+    </script>
+</head>
+<body>
+<div class="wrapper">
+  <div>
+    <img class="logo" src="https://m.macmillanlearning.com/Catalog/uploadedImages/Content/BFW/Home/ic-homepage-callout-student.png"> 
+<h2>Lista de Alunos</h2>
+  <table border="1" class="tabela">
+    <thead>
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Nota</td>
+            <td>Opções</td>
+        </tr>
+    </thead>
+    <tbody>
+    <% data.forEach(function(details) { %>
+        <tr>
+            <td><%= details.nome %></td>
+            <td><%= details.nota %></td>
+            <td><a href="/edit/<%= details._id %>">Editar</a> - <a href="/delete/<%= details._id %>" onclick="aviso()" >Deletar</a></td>
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+  <button><a href="/">Voltar</a></button>
+  </div>
+  </div>
+</body>
+</html>
